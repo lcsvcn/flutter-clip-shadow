@@ -1,4 +1,4 @@
-import 'package:clip_shadow/clip_shadow.dart';
+import 'package:flutter_clip_shadow/flutter_clip_shadow.dart';
 import './clipper.dart';
 import 'package:flutter/material.dart';
 
@@ -22,21 +22,17 @@ class MyApp extends StatelessWidget {
               SizedBox(height: 30.0),
               Container(
                 height: 100.0,
-                decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 10.0,
-                        spreadRadius: 10.0,
-                        color: Color.fromRGBO(196, 196, 196, 1),
-                      )
-                    ]
-                ),
-                child: Text('normal box shadow',
-                  style: TextStyle(
-                      fontSize: 30.0
-                  ),
+                decoration: BoxDecoration(color: Colors.blueAccent, boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 10.0,
+                    spreadRadius: 10.0,
+                    color: Color.fromRGBO(196, 196, 196, 1),
+                  )
+                ]),
+                child: Text(
+                  'normal box shadow',
+                  style: TextStyle(fontSize: 30.0),
                 ),
               ),
               SizedBox(height: 30.0),
@@ -53,7 +49,8 @@ class MyApp extends StatelessWidget {
                 child: Container(
                   color: Colors.redAccent,
                   height: 100.0,
-                  child: Text('clip shadow example',
+                  child: Text(
+                    'clip shadow example',
                     style: TextStyle(
                       fontSize: 30.0,
                     ),

@@ -1,15 +1,15 @@
-library clip_shadow;
+library flutter_clip_shadow;
 
 import 'package:flutter/widgets.dart';
 
 class _ClipShadowPainter extends CustomPainter {
+  final CustomClipper<Path> clipper;
+  final List<BoxShadow> boxShadows;
+
   const _ClipShadowPainter({
     required this.clipper,
     required this.boxShadows,
   });
-  
-  final CustomClipper<Path> clipper;
-  final List<BoxShadow> boxShadows;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -45,18 +45,15 @@ class ClipShadow extends StatelessWidget {
   /// The [Widget] below this widget in the tree.
   final Widget child;
 
-  ClipShadow({
-    required this.boxShadow,
-    required this.clipper,
-    required this.child
-  });
+  ClipShadow(
+      {required this.boxShadow, required this.clipper, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       painter: _ClipShadowPainter(
-          clipShadow: boxShadow,
-          clipper: clipper
+        clipper: clipper,
+        boxShadows: boxShadow,
       ),
       child: ClipPath(
         clipper: clipper,
